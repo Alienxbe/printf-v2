@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_conversion.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/16 22:11:33 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/17 20:44:31 by maykman          ###   ########.fr       */
+/*   Created: 2022/04/16 23:52:38 by maykman           #+#    #+#             */
+/*   Updated: 2022/04/16 23:59:52 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include <stdio.h>
+#include "ft_printf.h"
 
-int main(void)
+int	ft_conversion(const char **ptr, va_list args)
 {
-	printf("(%d)\n", printf("Bonjour a tous les amis\n"));
-	printf("(%d)\n", ft_printf("Bonjour a % tous les amis\n"));
-	return 0;
+	t_tag	tag;
+
+	tag = ft_set_tag(ptr, args);
+	return (0);
 }
 

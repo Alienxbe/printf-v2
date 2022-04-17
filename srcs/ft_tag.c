@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_tag.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/16 22:15:27 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/17 20:53:15 by maykman          ###   ########.fr       */
+/*   Created: 2022/04/16 23:53:24 by maykman           #+#    #+#             */
+/*   Updated: 2022/04/17 21:37:32 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+static int	ft_get_flags(const char **ptr)
 {
-	const char	*ptr;
-	va_list		args;
-	int			len;
+	int		flags;
+	char	*pos;
 
-	va_start(args, format);
-	ptr = ft_strchr(format, '%');
-	len = 0;
-	while (ptr)
+	flags = 0;
+	pos = ft_strchr(FLAGS, **ptr);
+	while (pos)
 	{
-		len += write(1, format, ptr - format);
-		format = ptr + 1;
-		// Conversion here
-		ptr = ft_strchr(format, '%');
+		flags += FLAG_VAL((pos - FLAGS + 1));
+		pos = ft_strchr(FLAGS, *++*ptr);
 	}
-	va_end(args);
-	if (ptr != format)
-		len += write(1, format, ft_strlen(format));
-	return (len);
+	if (**ptr == '.')
+		flags += FLAG_PRECISION;
+	return (flags);
+}
+
+t_tag	ft_set_tag(const char **ptr, va_list args)
+{
+	t_tag	tag;
+
+	tag.flags = ft_get_flags(ptr);
+	if (tag.flags & FLAG_PRECISION)
+	tag.prec = ft_get_prec(ptr);
+	return (tag);
 }
