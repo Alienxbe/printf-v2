@@ -6,7 +6,7 @@
 #    By: maykman <maykman@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/16 22:09:09 by maykman           #+#    #+#              #
-#    Updated: 2022/04/16 23:00:41 by maykman          ###   ########.fr        #
+#    Updated: 2022/04/23 19:25:30 by maykman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,4 +58,9 @@ fclean:
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+install:
+	@git clone https://github.com/Alienxbe/LibftProject-v2.git libft/
+	@rm -rf libft/.git/
+	@echo "${PREFIX}${BLUE}Installing Libft...${RESET}"
+
+.PHONY:		all clean fclean re install
