@@ -6,35 +6,45 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 23:53:24 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/17 21:37:32 by maykman          ###   ########.fr       */
+/*   Updated: 2022/04/24 00:07:48 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_get_flags(const char **ptr)
+static int	ft_getflags(const char **format)
 {
-	int		flags;
-	char	*pos;
+	int	flags;
+	int	index;
 
 	flags = 0;
-	pos = ft_strchr(FLAGS, **ptr);
-	while (pos)
+	index = ft_index(FLAGS, **format);
+	while (index >= 0)
 	{
-		flags += FLAG_VAL((pos - FLAGS + 1));
-		pos = ft_strchr(FLAGS, *++*ptr);
+		flags += FLAG_VAL(index + 1);
+		index = ft_index(FLAGS, *++*format);
 	}
-	if (**ptr == '.')
-		flags += FLAG_PRECISION;
 	return (flags);
 }
 
-t_tag	ft_set_tag(const char **ptr, va_list args)
+/*
+** What if number is bigger than : 2147483638 ?
+*/
+static int	ft_getwidth(char **format)
+{
+	int	width;
+
+	width = ft_atoi(*format);
+	return (width);
+}
+
+t_tag	ft_set_tag(const char **format)
 {
 	t_tag	tag;
 
-	tag.flags = ft_get_flags(ptr);
-	if (tag.flags & FLAG_PRECISION)
-	tag.prec = ft_get_prec(ptr);
+	tag.flags = ft_getflags(format);
+	tag.width = ft_getwidth(format);
+	tag.prec = -1;
+	tag.type = (t_type)NONE;
 	return (tag);
 }

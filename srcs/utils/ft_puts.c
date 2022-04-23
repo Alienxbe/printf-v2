@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion.c                                    :+:      :+:    :+:   */
+/*   ft_puts.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/16 23:52:38 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/23 23:43:44 by maykman          ###   ########.fr       */
+/*   Created: 2022/04/23 19:49:08 by maykman           #+#    #+#             */
+/*   Updated: 2022/04/23 19:51:10 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_conversion(const char **ptr, va_list args)
+int	ft_puts(const char *s, int fd)
 {
-	t_tag	tag;
-
-	(void)args;
-	tag = ft_set_tag(ptr);
-	return (0);
+	if (!s)
+		return (0);
+	return (write(fd, s, ft_strlen(s)));
 }
-

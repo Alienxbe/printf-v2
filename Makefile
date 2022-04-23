@@ -6,7 +6,7 @@
 #    By: maykman <maykman@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/16 22:09:09 by maykman           #+#    #+#              #
-#    Updated: 2022/04/23 19:25:30 by maykman          ###   ########.fr        #
+#    Updated: 2022/04/23 23:39:16 by maykman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,13 @@ INCLUDES	:=	./includes
 LIBFT		:=	./libft
 
 # FILES
-SRCS		:=	ft_printf.c
+SRCS		:=	ft_printf.c \
+				ft_conversion.c \
+				ft_tag.c
+SRCS_UTILS	:=	ft_puts.c \
+				ft_index.c
 OBJS		:=	$(addprefix srcs/, ${SRCS:.c=.o})
+OBJS		+=	$(addprefix srcs/utils/, ${SRCS_UTILS:.c=.o})
 
 # RULES
 %.o:		%.c
@@ -59,8 +64,10 @@ fclean:
 re:			fclean all
 
 install:
-	@git clone https://github.com/Alienxbe/LibftProject-v2.git libft/
-	@rm -rf libft/.git/
-	@echo "${PREFIX}${BLUE}Installing Libft...${RESET}"
+	@git clone https://github.com/Alienxbe/LibftProject-v2.git ${LIBFT}
 
-.PHONY:		all clean fclean re install
+update:
+	@git -C ${LIBFT} pull
+
+
+.PHONY:		all clean fclean re install update

@@ -6,17 +6,16 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:11:33 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/17 20:44:31 by maykman          ###   ########.fr       */
+/*   Updated: 2022/04/24 00:08:36 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
-#include <stdio.h>
 
 int main(void)
 {
-	printf("(%d)\n", printf("Bonjour a tous les amis\n"));
-	printf("(%d)\n", ft_printf("Bonjour a % tous les amis\n"));
-	return 0;
+	// ft_printf("Bonjour %-10");
+	printf("Bonjour %0646546546543213214684898798654654654987987984654d\n", 1);
+	return (0);
 }
 

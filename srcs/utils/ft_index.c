@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion.c                                    :+:      :+:    :+:   */
+/*   ft_index.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/16 23:52:38 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/23 23:43:44 by maykman          ###   ########.fr       */
+/*   Created: 2022/04/23 23:36:16 by maykman           #+#    #+#             */
+/*   Updated: 2022/04/23 23:40:43 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_conversion(const char **ptr, va_list args)
+int	ft_index(const char *s, char c)
 {
-	t_tag	tag;
+	int	i;
 
-	(void)args;
-	tag = ft_set_tag(ptr);
-	return (0);
+	i = ft_strchr(s, c) - s;
+	if (i < 0 || !s[i])
+		return (-1);
+	return (i);
 }
-

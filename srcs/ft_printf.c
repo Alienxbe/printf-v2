@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:15:27 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/17 20:53:15 by maykman          ###   ########.fr       */
+/*   Updated: 2022/04/23 23:14:55 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ int	ft_printf(const char *format, ...)
 	va_list		args;
 	int			len;
 
+	len = 0;
 	va_start(args, format);
 	ptr = ft_strchr(format, '%');
-	len = 0;
 	while (ptr)
 	{
-		len += write(1, format, ptr - format);
+		len += write(STDOUT_FILENO, format, ptr - format);
 		format = ptr + 1;
-		// Conversion here
+		len += ft_conversion(&format, args);
 		ptr = ft_strchr(format, '%');
 	}
+	if (format != ptr)
+		len += ft_puts(format, STDOUT_FILENO);
 	va_end(args);
-	if (ptr != format)
-		len += write(1, format, ft_strlen(format));
 	return (len);
 }
