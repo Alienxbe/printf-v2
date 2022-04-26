@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion.c                                    :+:      :+:    :+:   */
+/*   ft_strtypelen.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/16 23:52:38 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/26 19:59:42 by maykman          ###   ########.fr       */
+/*   Created: 2022/04/24 18:25:36 by maykman           #+#    #+#             */
+/*   Updated: 2022/04/24 18:52:10 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_conversion(const char **format, va_list args)
+size_t	ft_strtypelen(const char *s, int (*istype)(int))
 {
-	t_tag	tag;
+	size_t	len;
 
-	(void)args;
-	tag = ft_set_tag(format);
-	ft_putstr_fd(va_arg(args, char *), STDOUT_FILENO);
-	return (0);
+	len = 0;
+	if (s)
+		while (istype(s[len]))
+			len++;
+	return (len);
 }

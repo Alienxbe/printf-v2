@@ -6,7 +6,7 @@
 #    By: maykman <maykman@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/16 22:09:09 by maykman           #+#    #+#              #
-#    Updated: 2022/04/23 23:39:16 by maykman          ###   ########.fr        #
+#    Updated: 2022/04/24 18:54:36 by maykman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,10 @@ SRCS		:=	ft_printf.c \
 				ft_conversion.c \
 				ft_tag.c
 SRCS_UTILS	:=	ft_puts.c \
-				ft_index.c
+				ft_index.c \
+				ft_todigit.c \
+				ft_strtypelen.c \
+				ft_cmp_bn.c
 OBJS		:=	$(addprefix srcs/, ${SRCS:.c=.o})
 OBJS		+=	$(addprefix srcs/utils/, ${SRCS_UTILS:.c=.o})
 

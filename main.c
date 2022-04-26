@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:11:33 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/24 00:08:36 by maykman          ###   ########.fr       */
+/*   Updated: 2022/04/26 20:18:14 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 int main(void)
 {
-	// ft_printf("Bonjour %-10");
-	printf("Bonjour %0646546546543213214684898798654654654987987984654d\n", 1);
+	ft_printf("Bonjour : %123d :D\n", "OUIOUI BAGUETTE");
+	// char	s[] = "Bonjour";
+
+	// (void)s;
+	// printf("%p\n", s);
+	// printf("%#llx\n", (long long)s);
+	printf("%d\n", printf("%6516516515616321516516515651651561651c\n", 'c'));
 	return (0);
 }
 

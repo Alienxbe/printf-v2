@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion.c                                    :+:      :+:    :+:   */
+/*   ft_todigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/16 23:52:38 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/26 19:59:42 by maykman          ###   ########.fr       */
+/*   Created: 2022/04/24 17:10:47 by maykman           #+#    #+#             */
+/*   Updated: 2022/04/24 17:11:02 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_conversion(const char **format, va_list args)
+int	ft_todigit(char c)
 {
-	t_tag	tag;
-
-	(void)args;
-	tag = ft_set_tag(format);
-	ft_putstr_fd(va_arg(args, char *), STDOUT_FILENO);
-	return (0);
+	if (ft_isdigit(c))
+		return (c - '0');
+	return (-1);
 }
