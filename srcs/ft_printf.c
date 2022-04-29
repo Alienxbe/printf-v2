@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:15:27 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/29 02:12:45 by maykman          ###   ########.fr       */
+/*   Updated: 2022/04/29 02:51:30 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,12 @@ static int	ft_checkformat(const char *format)
 	while (*format)
 	{
 		if (*format == '%')
+		{
 			if (ft_set_tag(&format).type == (t_type)NONE)
 				return (1);
-		format++;
+		}
+		else
+			format++;
 	}
 	return (0);
 }

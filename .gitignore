@@ -53,3 +53,6 @@ dkms.conf
 
 # Lib
 libft/
+
+# Tester
+printfTester
