@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:12:20 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/29 02:00:02 by maykman          ###   ########.fr       */
+/*   Updated: 2022/04/29 19:18:11 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include <stdarg.h>
 # include "../libft/includes/libft.h"
-
-// TO REMOVE
-#include <stdio.h>
 
 # define FDOUT				STDOUT_FILENO
 
@@ -100,7 +97,7 @@ int		ft_todigit(char c);
 int		ft_cmp_bn(const char *n1, const char *n2);
 size_t	ft_strtypelen(const char *s, int (*istype)(int));
 char	*ft_ctoa(char c);
-char	*ft_utoa_base(unsigned int n, const char *base);
+char	*ft_zutoa_base(size_t n, const char *base);
 char	*ft_addprefix(char *s, const char *prefix);
 
 #endif

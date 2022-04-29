@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_zutoa_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 00:30:23 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/29 00:53:42 by maykman          ###   ########.fr       */
+/*   Updated: 2022/04/29 16:18:06 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static size_t	ft_usize_base(unsigned int n, size_t base_len)
+static size_t	ft_usize_base(size_t n, size_t base_len)
 {
 	if (n < base_len)
 		return (1);
@@ -37,7 +37,7 @@ static size_t	check_base(const char *base)
 	return (len);
 }
 
-char	*ft_utoa_base(unsigned int n, const char *base)
+char	*ft_zutoa_base(size_t n, const char *base)
 {
 	char	*s;
 	size_t	base_len;

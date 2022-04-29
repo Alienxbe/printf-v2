@@ -6,7 +6,7 @@
 #    By: maykman <maykman@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/16 22:09:09 by maykman           #+#    #+#              #
-#    Updated: 2022/04/29 01:58:39 by maykman          ###   ########.fr        #
+#    Updated: 2022/04/29 16:18:28 by maykman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ GREEN		:=	\033[38;5;10m
 BLUE		:= 	\033[38;5;14m
 YELLOW		:=	\033[38;5;226m
 RESET		:=	\033[38;5;7m
-PREFIX		=	[${YELLOW}${FT}${RESET}]\t
+PREFIX		=	[${YELLOW}${FT}${RESET}]\t\t
 
 # VARIABLES
 FT			:=	libftprintf
@@ -51,7 +51,7 @@ SRCS_UTILS	:=	ft_puts.c \
 				ft_cmp_bn.c \
 				ft_ctoa.c \
 				ft_putnchar.c \
-				ft_utoa_base.c \
+				ft_zutoa_base.c \
 				ft_addprefix.c
 OBJS		:=	$(addprefix srcs/, ${SRCS:.c=.o})
 OBJS		+=	$(addprefix srcs/types/, ${SRCS_TYPES:.c=.o})

@@ -6,14 +6,17 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:11:33 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/29 02:44:03 by maykman          ###   ########.fr       */
+/*   Updated: 2022/04/29 19:07:00 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
+#include <stdio.h>
+#include <limits.h>
 
 int main(void)
 {
-	ft_printf("%%%%\n", 10, 20);
+	ft_printf("|%05d|\n", 10);
+	printf("|%05d|\n", 10);
 	return (0);
 }
