@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_type_p.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/16 22:11:33 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/29 02:14:46 by maykman          ###   ########.fr       */
+/*   Created: 2022/04/29 01:50:12 by maykman           #+#    #+#             */
+/*   Updated: 2022/04/29 01:59:02 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "ft_printf.h"
 
-int main(void)
+int	ft_type_p(t_tag tag, va_list args)
 {
-	// ft_printf("Bonjour : %123d :D\n", "OUIOUI BAGUETTE");
-	// char	s[] = "Bonjour";
+	char	*s;
 
-	// (void)s;
-	// printf("%p\n", s);
-	// printf("%#llx\n", (long long)s);
-	char	s[] = "Le numero %d!\n";
-
-	ft_printf("=> %-9s : %d\n", "Your", ft_printf(s, -12));
-	printf("=> %-9s : %d\n", "Original", printf(s, -12));
-	//printf("%;\n");
-	return (0);
+	s = ft_utoa_base(va_arg(args, unsigned int), BASE_HEXA_L);
+	return (ft_print(ft_addprefix(s, "0x"), tag));
 }

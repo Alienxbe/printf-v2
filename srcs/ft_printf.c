@@ -6,19 +6,16 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:15:27 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/26 20:18:22 by maykman          ###   ########.fr       */
+/*   Updated: 2022/04/29 02:12:45 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
-** ToDo :
-** 	- Function that check every conversion before printing anything
-*/
-
 static int	ft_checkformat(const char *format)
 {
+	if (!format)
+		return (1);
 	while (*format)
 	{
 		if (*format == '%')
@@ -35,20 +32,20 @@ int	ft_printf(const char *format, ...)
 	va_list		args;
 	int			len;
 
-	if (!format || ft_checkformat(format))
+	if (ft_checkformat(format))
 		return (-1);
 	len = 0;
 	va_start(args, format);
 	ptr = ft_strchr(format, '%');
 	while (ptr)
 	{
-		len += write(STDOUT_FILENO, format, ptr - format);
+		len += write(FDOUT, format, ptr - format);
 		format = ptr;
 		len += ft_conversion(&format, args);
 		ptr = ft_strchr(format, '%');
 	}
-	if (format != ptr)
-		len += ft_puts(format, STDOUT_FILENO);
+	if (!ptr)
+			len += ft_puts(format, FDOUT);
 	va_end(args);
 	return (len);
 }

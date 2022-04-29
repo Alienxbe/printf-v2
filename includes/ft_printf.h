@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:12:20 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/26 19:59:54 by maykman          ###   ########.fr       */
+/*   Updated: 2022/04/29 02:00:02 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 // TO REMOVE
 #include <stdio.h>
 
+# define FDOUT				STDOUT_FILENO
+
 # define FLAG_PRECISION		1
 # define FLAG_ZERO			2
 # define FLAG_MINUS			4
@@ -30,6 +32,10 @@
 # define NULL_STR			"(null)"
 # define MAX_WIDTH_STR		"2147483638"
 # define MAX_PREC_STR		"2147483646"
+
+# define BASE_DECI			"0123456789"
+# define BASE_HEXA_L		"0123456789abcdef"
+# define BASE_HEXA_U		"0123456789ABCDEF"
 
 # define FT_PRINTF_ERROR	-1
 
@@ -58,6 +64,8 @@ typedef struct s_tag
 	t_type	type;
 }	t_tag;
 
+typedef int	(*t_print)(t_tag, va_list);
+
 /*
 ** Main functions
 */
@@ -67,13 +75,32 @@ int		ft_conversion(const char **format, va_list args);
 t_tag	ft_set_tag(const char **format);
 
 /*
+** Types functions
+*/
+
+int		ft_print(char *str, t_tag tag);
+int		ft_type_c(t_tag tag, va_list args);
+int		ft_type_s(t_tag tag, va_list args);
+int		ft_type_p(t_tag tag, va_list args);
+int		ft_type_d(t_tag tag, va_list args);
+int		ft_type_i(t_tag tag, va_list args);
+int		ft_type_u(t_tag tag, va_list args);
+int		ft_type_lx(t_tag tag, va_list args);
+int		ft_type_ux(t_tag tag, va_list args);
+int		ft_type_pct(t_tag tag, va_list args);
+
+/*
 ** Utils functions
 */
 
 int		ft_puts(const char *s, int fd);
+int		ft_putnchar(char c, int n, int fd);
 int		ft_index(const char *s, char c);
 int		ft_todigit(char c);
 int		ft_cmp_bn(const char *n1, const char *n2);
 size_t	ft_strtypelen(const char *s, int (*istype)(int));
+char	*ft_ctoa(char c);
+char	*ft_utoa_base(unsigned int n, const char *base);
+char	*ft_addprefix(char *s, const char *prefix);
 
 #endif

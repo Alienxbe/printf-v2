@@ -6,7 +6,7 @@
 #    By: maykman <maykman@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/16 22:09:09 by maykman           #+#    #+#              #
-#    Updated: 2022/04/24 18:54:36 by maykman          ###   ########.fr        #
+#    Updated: 2022/04/29 01:58:39 by maykman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,17 +29,32 @@ FT			:=	libftprintf
 NAME		:=	${FT}.a
 INCLUDES	:=	./includes
 LIBFT		:=	./libft
+MAKE_LIBFT	:=	@make -s -C ${LIBFT}
 
 # FILES
 SRCS		:=	ft_printf.c \
 				ft_conversion.c \
 				ft_tag.c
+SRCS_TYPES	:=	ft_print.c \
+				ft_type_c.c \
+				ft_type_s.c \
+				ft_type_p.c \
+				ft_type_d.c \
+				ft_type_u.c \
+				ft_type_lx.c \
+				ft_type_ux.c \
+				ft_type_pct.c
 SRCS_UTILS	:=	ft_puts.c \
 				ft_index.c \
 				ft_todigit.c \
 				ft_strtypelen.c \
-				ft_cmp_bn.c
+				ft_cmp_bn.c \
+				ft_ctoa.c \
+				ft_putnchar.c \
+				ft_utoa_base.c \
+				ft_addprefix.c
 OBJS		:=	$(addprefix srcs/, ${SRCS:.c=.o})
+OBJS		+=	$(addprefix srcs/types/, ${SRCS_TYPES:.c=.o})
 OBJS		+=	$(addprefix srcs/utils/, ${SRCS_UTILS:.c=.o})
 
 # RULES
@@ -48,19 +63,19 @@ OBJS		+=	$(addprefix srcs/utils/, ${SRCS_UTILS:.c=.o})
 	@echo "${PREFIX}${BLUE}Compilation of $<...${RESET}"
 
 $(NAME):	${OBJS}
-	@make NAME=../${NAME} -C ${LIBFT}
+	${MAKE_LIBFT} NAME=../${NAME}
 	${AR} ${LFLAGS} $@ $^
 	@echo "${PREFIX}${GREEN}Library created !${RESET}"
 
 all:		${NAME}
 
 clean:
-	@make -C ${LIBFT} clean
+	${MAKE_LIBFT} clean
 	@rm -f ${OBJS}
 	@echo "${PREFIX}${YELLOW}Cleaning objects files...${RESET}"
 
 fclean:
-	@make -C ${LIBFT} clean
+	${MAKE_LIBFT} clean
 	@rm -f ${NAME} ${OBJS} ${OBJS_BONUS}
 	@echo "${PREFIX}${RED}Full clean...${RESET}"
 
