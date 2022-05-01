@@ -6,7 +6,7 @@
 #    By: maykman <maykman@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/16 22:09:09 by maykman           #+#    #+#              #
-#    Updated: 2022/04/29 16:18:28 by maykman          ###   ########.fr        #
+#    Updated: 2022/04/29 19:24:35 by maykman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,5 +87,6 @@ install:
 update:
 	@git -C ${LIBFT} pull
 
+bonus:		all
 
-.PHONY:		all clean fclean re install update
+.PHONY:		all clean fclean re install update bonus

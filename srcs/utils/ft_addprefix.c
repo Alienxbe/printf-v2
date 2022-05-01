@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 01:53:17 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/29 02:00:12 by maykman          ###   ########.fr       */
+/*   Updated: 2022/04/29 21:08:27 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ char	*ft_addprefix(char *s, const char *prefix)
 {
 	char	*new;
 
-	if (!s)
+	if (!s || !prefix)
 		return (NULL);
-	if (!prefix)
-		return (ft_strdup(s));
 	new = ft_strjoin(prefix, s);
 	free(s);
 	return (new);

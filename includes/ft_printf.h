@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:12:20 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/29 19:18:11 by maykman          ###   ########.fr       */
+/*   Updated: 2022/04/29 21:02:40 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdarg.h>
 # include "../libft/includes/libft.h"
+
+#include <stdio.h>
 
 # define FDOUT				STDOUT_FILENO
 
