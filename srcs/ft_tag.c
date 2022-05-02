@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 23:53:24 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/29 02:51:18 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/01 16:29:28 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,25 @@ static int	ft_getprec(const char **format, t_tag *tag)
 	return (prec);
 }
 
-static int	ft_checktag(t_tag tag)
+/*
+** remove flag space if flag plus is active
+** remove flag zero if there is a precision and type is intger
+*/
+static int	ft_checktag(t_tag *tag)
 {
-	if (tag.width == FT_PRINTF_ERROR)
+	// Checking errors
+	if (tag->width == FT_PRINTF_ERROR)
 		return (1);
-	if (tag.flags & FLAG_PRECISION && tag.prec == FT_PRINTF_ERROR)
+	if (tag->type == (t_type)NONE)
 		return (1);
-	if (tag.type == (t_type)NONE)
+	if (tag->flags & FLAG_PRECISION && tag->prec == FT_PRINTF_ERROR)
 		return (1);
+	// Disable canceled flags
+	if (tag->flags & FLAG_MINUS && tag->flags & FLAG_ZERO)
+		tag->flags ^= FLAG_ZERO;
+	if (ft_index(INTEGER_TYPES, TYPES[tag->type])
+		&& tag->flags & FLAG_ZERO && tag->flags & FLAG_PRECISION)
+		tag->flags ^= FLAG_ZERO;
 	return (0);
 }
 
@@ -72,7 +83,7 @@ t_tag	ft_set_tag(const char **format)
 	tag.width = ft_getwidth(format);
 	tag.prec = ft_getprec(format, &tag);
 	tag.type = (t_type)ft_index(TYPES, **format);
-	if (ft_checktag(tag))
+	if (ft_checktag(&tag))
 		tag.type = (t_type)NONE;
 	else
 		(*format)++;

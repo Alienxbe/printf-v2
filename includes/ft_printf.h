@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:12:20 by maykman           #+#    #+#             */
-/*   Updated: 2022/04/29 21:02:40 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/01 14:57:30 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define FLAG_PLUS			32
 # define FLAGS				"0-# +"
 # define TYPES				"cspdiuxX%"
+# define INTEGER_TYPES		"iuxXd"
 # define NULL_STR			"(null)"
 # define MAX_WIDTH_STR		"2147483638"
 # define MAX_PREC_STR		"2147483646"
