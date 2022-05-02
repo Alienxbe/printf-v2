@@ -6,33 +6,16 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 23:06:47 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/01 16:23:20 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/02 18:26:26 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*add_chars(char *s, unsigned char c, int n)
-{
-	char	*new;
-	size_t	len;
-
-	if (!s || n <= 0)
-		return (s);
-	len = ft_strlen(s) + n;
-	new = ft_calloc(len + 1, sizeof(*new));
-	if (new)
-	{
-		ft_memset(new, c, n);
-		ft_memcpy(new + n, s, ft_strlen(s));
-	}
-	free(s);
-	return (new);
-}
-
 int	ft_type_d(t_tag tag, va_list args)
 {
 	char			*s;
+	const char		*prefix;
 	int				n;
 	unsigned int	un;
 
@@ -40,16 +23,18 @@ int	ft_type_d(t_tag tag, va_list args)
 	un = n;
 	if (n < 0)
 		un = -n;
-	s = ft_zutoa_base(un, BASE_DECI);
-	if (tag.flags & FLAG_PRECISION)
-		s = add_chars(s, '0', tag.prec - ft_strlen(s));
-	else if (tag.flags & FLAG_ZERO)
-		s = add_chars(s, '0', tag.width - ft_strlen(s));
+	prefix = NULL;
 	if (n < 0)
-		s = ft_addprefix(s, "-");
-	else if (n > 0 && tag.flags & FLAG_PLUS)
-		s = ft_addprefix(s, "+");
-	else if (n > 0 && tag.flags & FLAG_SPACE)
-		s = ft_addprefix(s, " ");
+		prefix = "-";
+	else if (tag.flags & FLAG_PLUS)
+		prefix = "+";
+	else if (tag.flags & FLAG_SPACE)
+		prefix = " ";
+	if (!n && tag.flags & FLAG_PRECISION && tag.prec == 0)
+		s = ft_strdup("");
+	else
+		s = ft_zutoa_base(un, BASE_DECI);
+	filling_zeroes(&s, prefix, tag);
+	s = ft_addprefix(s, prefix);
 	return (ft_print(s, tag));
 }

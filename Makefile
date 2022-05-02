@@ -6,7 +6,7 @@
 #    By: maykman <maykman@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/16 22:09:09 by maykman           #+#    #+#              #
-#    Updated: 2022/04/29 19:24:35 by maykman          ###   ########.fr        #
+#    Updated: 2022/05/02 14:06:22 by maykman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,8 @@ SRCS_UTILS	:=	ft_puts.c \
 				ft_ctoa.c \
 				ft_putnchar.c \
 				ft_zutoa_base.c \
-				ft_addprefix.c
+				ft_addprefix.c \
+				ft_utils.c
 OBJS		:=	$(addprefix srcs/, ${SRCS:.c=.o})
 OBJS		+=	$(addprefix srcs/types/, ${SRCS_TYPES:.c=.o})
 OBJS		+=	$(addprefix srcs/utils/, ${SRCS_UTILS:.c=.o})

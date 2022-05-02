@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:12:20 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/01 14:57:30 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/02 18:35:03 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <stdarg.h>
 # include "../libft/includes/libft.h"
-
-#include <stdio.h>
 
 # define FDOUT				STDOUT_FILENO
 
@@ -38,8 +36,6 @@
 # define BASE_HEXA_U		"0123456789ABCDEF"
 
 # define FT_PRINTF_ERROR	-1
-
-# define FLAG_VAL(pos)	1 << (pos)
 
 typedef enum e_type
 {
@@ -102,5 +98,7 @@ size_t	ft_strtypelen(const char *s, int (*istype)(int));
 char	*ft_ctoa(char c);
 char	*ft_zutoa_base(size_t n, const char *base);
 char	*ft_addprefix(char *s, const char *prefix);
+
+void	filling_zeroes(char **s, const char *prefix, t_tag tag);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 23:53:24 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/01 16:29:28 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/02 18:35:16 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	ft_getflags(const char **format)
 	index = ft_index(FLAGS, **format);
 	while (index >= 0)
 	{
-		flags += FLAG_VAL(index + 1);
+		flags |= 1 << (index + 1);
 		index = ft_index(FLAGS, *++*format);
 	}
 	return (flags);
@@ -44,7 +44,7 @@ static int	ft_getprec(const char **format, t_tag *tag)
 
 	if (**format != '.')
 		return (FT_PRINTF_ERROR);
-	tag->flags += FLAG_PRECISION;
+	tag->flags |= FLAG_PRECISION;
 	if (ft_cmp_bn(++*format, MAX_PREC_STR) > 0)
 		return (FT_PRINTF_ERROR);
 	prec = ft_atoi(*format);
@@ -58,17 +58,15 @@ static int	ft_getprec(const char **format, t_tag *tag)
 */
 static int	ft_checktag(t_tag *tag)
 {
-	// Checking errors
 	if (tag->width == FT_PRINTF_ERROR)
 		return (1);
 	if (tag->type == (t_type)NONE)
 		return (1);
 	if (tag->flags & FLAG_PRECISION && tag->prec == FT_PRINTF_ERROR)
 		return (1);
-	// Disable canceled flags
 	if (tag->flags & FLAG_MINUS && tag->flags & FLAG_ZERO)
 		tag->flags ^= FLAG_ZERO;
-	if (ft_index(INTEGER_TYPES, TYPES[tag->type])
+	if (ft_strchr(INTEGER_TYPES, TYPES[tag->type])
 		&& tag->flags & FLAG_ZERO && tag->flags & FLAG_PRECISION)
 		tag->flags ^= FLAG_ZERO;
 	return (0);
