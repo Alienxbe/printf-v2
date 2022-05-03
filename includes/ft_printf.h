@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:12:20 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/02 18:35:03 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/03 17:32:29 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,6 @@ char	*ft_ctoa(char c);
 char	*ft_zutoa_base(size_t n, const char *base);
 char	*ft_addprefix(char *s, const char *prefix);
 
-void	filling_zeroes(char **s, const char *prefix, t_tag tag);
+char	*filling_zeroes(char *s, const char *prefix, t_tag tag);
 
 #endif
