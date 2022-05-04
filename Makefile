@@ -6,7 +6,7 @@
 #    By: maykman <maykman@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/16 22:09:09 by maykman           #+#    #+#              #
-#    Updated: 2022/05/02 14:06:22 by maykman          ###   ########.fr        #
+#    Updated: 2022/05/04 00:32:04 by maykman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ SRCS_TYPES	:=	ft_print.c \
 				ft_type_u.c \
 				ft_type_lx.c \
 				ft_type_ux.c \
-				ft_type_pct.c
+				ft_type_pct.c \
+				ft_type_integers.c
 SRCS_UTILS	:=	ft_puts.c \
 				ft_index.c \
 				ft_todigit.c \

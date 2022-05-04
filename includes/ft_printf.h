@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:12:20 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/03 17:32:29 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/04 00:39:36 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define FLAG_PLUS			32
 # define FLAGS				"0-# +"
 # define TYPES				"cspdiuxX%"
-# define INTEGER_TYPES		"iuxXd"
+# define INTEGER_TYPES		"diuxX"
 # define NULL_STR			"(null)"
 # define MAX_WIDTH_STR		"2147483638"
 # define MAX_PREC_STR		"2147483646"
@@ -84,6 +84,7 @@ int		ft_type_u(t_tag tag, va_list args);
 int		ft_type_lx(t_tag tag, va_list args);
 int		ft_type_ux(t_tag tag, va_list args);
 int		ft_type_pct(t_tag tag, va_list args);
+int		ft_type_integers(t_tag tag, va_list args);
 
 /*
 ** Utils functions

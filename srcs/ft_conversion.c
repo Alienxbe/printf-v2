@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 23:52:38 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/03 18:00:14 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/04 00:45:01 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	ft_init_table(t_print *table)
 {
 	table[CHAR] = &ft_type_c;
 	table[STR] = &ft_type_s;
-	table[PTR] = &ft_type_p;
-	table[D_INT] = &ft_type_d;
-	table[I_INT] = &ft_type_d;
-	table[U_INT] = &ft_type_u;
-	table[LC_HEXA] = &ft_type_lx;
-	table[UC_HEXA] = &ft_type_ux;
+	table[PTR] = &ft_type_integers;
+	table[D_INT] = &ft_type_integers;
+	table[I_INT] = &ft_type_integers;
+	table[U_INT] = &ft_type_integers;
+	table[LC_HEXA] = &ft_type_integers;
+	table[UC_HEXA] = &ft_type_integers;
 	table[PCT] = &ft_type_pct;
 }
 
