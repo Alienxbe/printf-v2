@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:12:20 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/04 00:39:36 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/05 23:41:41 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@
 # define TYPES				"cspdiuxX%"
 # define INTEGER_TYPES		"diuxX"
 # define NULL_STR			"(null)"
-# define MAX_WIDTH_STR		"2147483638"
-# define MAX_PREC_STR		"2147483646"
+# define INT_MAX_STR		"2147483647"
 
 # define BASE_DECI			"0123456789"
 # define BASE_HEXA_L		"0123456789abcdef"
@@ -84,7 +83,6 @@ int		ft_type_u(t_tag tag, va_list args);
 int		ft_type_lx(t_tag tag, va_list args);
 int		ft_type_ux(t_tag tag, va_list args);
 int		ft_type_pct(t_tag tag, va_list args);
-int		ft_type_integers(t_tag tag, va_list args);
 
 /*
 ** Utils functions
@@ -101,5 +99,6 @@ char	*ft_zutoa_base(size_t n, const char *base);
 char	*ft_addprefix(char *s, const char *prefix);
 
 char	*filling_zeroes(char *s, const char *prefix, t_tag tag);
+char	*precision_condition(size_t n, t_tag tag, const char *base);
 
 #endif
