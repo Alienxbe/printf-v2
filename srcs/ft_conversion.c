@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 23:52:38 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/05 23:45:02 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/05 23:52:43 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ void	ft_init_table(t_print *table)
 	table[PCT] = &ft_type_pct;
 }
 
-int	ft_conversion(const char **format, va_list args)
+int	ft_conversion(int fd, const char **format, va_list args)
 {
 	t_print	ft_print[LENGTH];
 	t_tag	tag;
 
-	tag = ft_set_tag(format);
+	tag = ft_set_tag(fd, format);
 	ft_init_table(ft_print);
 	return (ft_print[tag.type](tag, args));
 }

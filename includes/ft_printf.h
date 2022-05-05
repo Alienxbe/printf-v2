@@ -6,7 +6,7 @@
 /*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:12:20 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/05 23:41:41 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/05 23:54:36 by maykman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <stdarg.h>
 # include "../libft/includes/libft.h"
-
-# define FDOUT				STDOUT_FILENO
 
 # define FLAG_PRECISION		1
 # define FLAG_ZERO			2
@@ -56,6 +54,7 @@ typedef struct s_tag
 	int		flags;
 	int		prec;
 	int		width;
+	int		fd;
 	t_type	type;
 }	t_tag;
 
@@ -66,8 +65,9 @@ typedef int	(*t_print)(t_tag, va_list);
 */
 
 int		ft_printf(const char *format, ...);
-int		ft_conversion(const char **format, va_list args);
-t_tag	ft_set_tag(const char **format);
+int		ft_fprintf(int fd, const char *format, ...);
+int		ft_conversion(int fd, const char **format, va_list args);
+t_tag	ft_set_tag(int fd, const char **format);
 
 /*
 ** Types functions
