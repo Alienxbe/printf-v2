@@ -6,7 +6,7 @@
 /*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:11:33 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/03 19:32:12 by mykman           ###   ########.fr       */
+/*   Updated: 2022/05/07 00:40:52 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <limits.h>
 
-#define PARAMS	"|%.0p|\n", NULL
+#define PARAMS	"|%0230d|\n", 315651
 
 int main(void)
 {
