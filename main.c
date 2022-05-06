@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maykman <maykman@student.s19.be>           +#+  +:+       +#+        */
+/*   By: mykman <mykman@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:11:33 by maykman           #+#    #+#             */
-/*   Updated: 2022/05/03 18:04:58 by maykman          ###   ########.fr       */
+/*   Updated: 2022/05/03 19:32:12 by mykman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@
 
 int main(void)
 {
-	ft_printf("yours : %d\n", ft_printf(PARAMS));
-	printf("Origi : %d\n", printf(PARAMS));
+	/*ft_printf("yours : %d\n", ft_printf(PARAMS));
+	printf("Origi : %d\n", printf(PARAMS));*/
+	char	nom[] = "Mathieu";
+
+	ft_printf("Bonjour %s\n", nom);
 	return (0);
 }
